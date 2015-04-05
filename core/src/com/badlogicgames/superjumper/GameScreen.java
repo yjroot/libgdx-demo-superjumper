@@ -24,6 +24,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Align;
 import com.badlogicgames.superjumper.World.WorldListener;
 
 public class GameScreen extends ScreenAdapter {
@@ -232,16 +233,13 @@ public class GameScreen extends ScreenAdapter {
 	private void presentLevelEnd () {
 		String topText = "the princess is ...";
 		String bottomText = "in another castle!";
-		float topWidth = Assets.font.getBounds(topText).width;
-		float bottomWidth = Assets.font.getBounds(bottomText).width;
-		Assets.font.draw(game.batcher, topText, 160 - topWidth / 2, 480 - 40);
-		Assets.font.draw(game.batcher, bottomText, 160 - bottomWidth / 2, 40);
+		Assets.font.draw(game.batcher, topText, 0, 480 - 40, 320, Align.center, false);
+		Assets.font.draw(game.batcher, bottomText, 0, 40, 320, Align.center, false);
 	}
 
 	private void presentGameOver () {
 		game.batcher.draw(Assets.gameOver, 160 - 160 / 2, 240 - 96 / 2, 160, 96);
-		float scoreWidth = Assets.font.getBounds(scoreString).width;
-		Assets.font.draw(game.batcher, scoreString, 160 - scoreWidth / 2, 480 - 20);
+		Assets.font.draw(game.batcher, scoreString, 0, 480 - 20, 320, Align.center, false);
 	}
 
 	@Override
